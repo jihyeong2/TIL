@@ -23,9 +23,7 @@ $ git config --global user.name {유저네임}
 $ git init
 ```
 
-- `.git`디렉토리가 생성되며, 여기에 Git과 관련된 모든 정보가 저장됩니다.
-- 초기화를 하고 나면 Git Bash에 `(master)` 라고 표시가 되는데, 이는 이 디렉토리는 이미 Git이 관리하고 있다는 뜻으로 생각할 수 있습니다.
-- 이미 초기화한 repo에서는 다시 git init을 하지 않습니다. (중요!)
+- 햣 
 
 ### 2. add
 
@@ -78,5 +76,11 @@ $ git remote add origin {github repo url}
 
 ```sh
 $ git remote -v
+```
+
+- 등록된 원격 저장소를 삭제하려면 아래의 명령어를 참고하세요.
+
+```
+$ git remote rm {원격저장소 이름}
 ```
 
