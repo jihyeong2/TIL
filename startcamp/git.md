@@ -23,8 +23,6 @@ $ git config --global user.name {유저네임}
 $ git init
 ```
 
-- 햣 
-
 ### 2. add
 
 > working directory 작업공간에서 변경된 사항을 이력으로 관리하기 위해서는 반드시 staging area를 거쳐야 한다.
@@ -63,6 +61,8 @@ $ git status
 
 - github에 가입 후, 빈 repo를 만들어둔다.
 
+
+
 ### 2.원격 저장소 등록
 
 - 로컬 저장소와 원격 저장소를 연결하는 일입니다.
@@ -84,6 +84,8 @@ $ git remote -v
 $ git remote rm {원격저장소 이름}
 ```
 
+
+
 ### 3. 원격 저장소에 업로드
 
 - 아래의 명령어를 통해 원격 저장소에 commit된 코드를 업로드할 수 있습니다.
@@ -101,4 +103,12 @@ $ git push origin master
 ```sh
 $ git clone {가져오고자 하는 repo url}
 ```
+
+- git이 관리하고 있는 repo를 컴퓨터 폴더에 적용하려면 아래의 명령어를 참고하세요.
+
+```sh
+$ git pull origin master
+```
+
+
 
