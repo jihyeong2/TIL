@@ -55,7 +55,46 @@ def function_name(parameter1, parameter2) :
   ```
 
 - Positional argument
+
   - The function is judge argument through that of place.
+
 - Default argument values
-  - When the function is called, it is possible that argument value sets.
+
+  - When the function is called, it is possible that you can set argument value.
   - It is impossible that you use positional argument after using default argument.
+
+  ```python 
+  def func(name='홍길동',age): # --> (age, name='홍길동')
+      pass
+  ```
+
+- Keyword argument
+
+  - It is possible that you can transfer specific argumetnt through name of value.
+  - It is impossible that you use positional argument after using keyword argument.
+
+  ```python
+  func(name='김지형',age=26) # --> O
+  func(age=26,'김지형') # --> X
+  ```
+
+- Arbitrary argument list
+
+  - For you transfer many arguments, you can use arbitrary argument list.
+  - Arbitrary argument list is used tuple, you must write `'*'` before value name.
+
+  ```python
+  def func(a,b,*args)
+  ```
+
+- Arbirary keyword argument
+
+  -  Arbitrary keyword list name is used to `'kwargs'` , you must write `'**'` before value name.
+
+  ```python
+  def func(**kwargs):
+      pass
+  func(name='김지형',age=26)
+  ```
+
+  
