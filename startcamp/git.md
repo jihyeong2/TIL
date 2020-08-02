@@ -112,3 +112,21 @@ $ git pull origin master
 
 
 
+### 5. Commit Message 수정하기
+
+- 맨 마지막 commit message를 수정하려면 아래의 명령어를 참고하세요.
+
+```bash
+$ git commit -ammend
+```
+
+
+
+### 6. Working Directory와 Staging Area 비교하기
+
+- 저장되어 있는 파일 정보와 현재 작업중인 파일과의 정보를 비교하여 추가/삭제 정보를 알려줄 때 사용한다.
+
+```bash
+$ git diff
+```
+
