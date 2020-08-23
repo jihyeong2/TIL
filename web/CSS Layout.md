@@ -202,7 +202,7 @@ flex-flow: row nowrap;
 
 ##### Grid System
 
-- Bootstrap의 Grid system은 containers안의 rows와 columns를 사용해서 컨텐츠를 레이웃하고 정렬한다.
+- Bootstrap의 Grid system은 containers안의 rows와 columns를 사용해서 컨텐츠를 레이아웃하고 정렬한다.
   - .container > .row > .col 의 구조
 
 
