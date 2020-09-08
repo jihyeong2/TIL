@@ -2,11 +2,9 @@ import sys
 sys.stdin=open("input.txt","r")
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
-visit = [[0] * n for _ in range(n)]
 def bfs(x,y,maps):
     global max_cnt,room,n
     q=list()
-    visit[x][y] = 1
     cnt=0
     q.append([x,y])
     while q:
@@ -18,8 +16,7 @@ def bfs(x,y,maps):
                 nx=xx+dx[i]
                 ny=yy+dy[i]
                 if nx<0 or ny<0 or nx>=n or ny>=n: continue
-                if maps[nx][ny]-maps[xx][yy]!=1 or visit[nx][ny]: continue
-                visit[nx][ny]=1
+                if maps[nx][ny]-maps[xx][yy]!=1: continue
                 q.append([nx,ny])
     if cnt>max_cnt:
         max_cnt=cnt
@@ -34,5 +31,4 @@ for tc in range(1,T+1):
     for i in range(n):
         for j in range(n):
             bfs(i,j,maps)
-            visit.clear()
     print(f'#{tc} {room} {max_cnt}')
