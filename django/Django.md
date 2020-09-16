@@ -1,3 +1,11 @@
+목차
+
+[Django](#django)
+
+​	[Intro](#intro)
+
+​	
+
 # Django
 
 ## Intro
@@ -77,6 +85,35 @@ $ python manage.py startapp articles
 
 - 생성한 app은 `settings.py`에 등록을 시켜야 함. 
 
+```python
+# settings.py
+
+INSTALLED_APPS = [
+	'articles',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+
+
+##### Internationalization
+
+- `settings.py`의 LANGUAGE_CODE와 TIME_ZONE을 변경하여, 언어와 시간을 원하는 대로 설정할 수 있다.
+
+```PYTHON
+# settings.py
+
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+```
+
+
+
 
 
  ##### runserver(Automatic reloading)
@@ -105,6 +142,8 @@ $ python manage.py startapp articles
   
 
 ##### views.py
+
+- Model과 Template 사이를 연결해주는 다리 역할을 하며, views에서는 서버로 저장될 입력 데이터를 저장하기도 하고 서버의 데이터를 Template으로 전달하여 사용자들로 하여금 보여주도록한다.
 
 ```python
 def index(request):
@@ -181,3 +220,20 @@ def hello(request,name):
 
 - 요청 간의 모든 정보를 담고 있는 변수
 - 페이지가 요청되면 Django는 요청에 대한 메타 데이터를 포함하는 HttpRequest 객체를 만든다.
+
+
+
+-------------------
+
+settings.py안에 있는 TEMPLATES context_processors의 auth가 기본적으로 내장되어 있기 때문에 base.html에서 받는 context가 없어도 user를 바로 사용할 수 있음.
+
+
+
+회원가입 > user create
+
+로그인 > session_id create > login 함수(request와 user 두 가지를 인자로 넘겨줘야함.)
+
+로그아웃 > session_id delete > logout 함수(request만 인자로 넘기면 됨)
+
+회원탈퇴 > user delete
+
