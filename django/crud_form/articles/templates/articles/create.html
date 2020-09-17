@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load bootstrap4 %}
+<h1>글쓰기 페이지</h1>
+<hr>
+<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% comment %} {{form.as_p}} {% endcomment %}
+    <button class="btn btn-primary">제출하기</button>
+</form>
+<a href="{% url 'articles:index' %}">메인페이지</a>
+{% endblock content %}

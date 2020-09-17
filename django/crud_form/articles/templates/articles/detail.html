@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>상세 페이지</h1>
+<h1>{{article.title}}</h1>
+<p>{{article.content}}</p>
+{% if article.image %}
+<img src="{{article.image.url}}" alt="{{article.image}}">
+{% endif %}
+<ul>
+    <li>{{article.created_at}}</li>
+    <li>{{article.updated_at}}</li>
+</ul>
+<a href="{% url 'articles:index' %}">메인페이지</a>
+<a href="{% url 'articles:update' article.pk %}">수정하기</a>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <button>삭제하기</button>
+</form>
+{% endblock content %}
