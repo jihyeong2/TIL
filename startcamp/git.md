@@ -130,3 +130,11 @@ $ git commit -ammend
 $ git diff
 ```
 
+
+
+### 7. 에러 시 처리 법(**The file will have its original line endings in your working directory.** )
+
+```bash
+$ git config core.autocrlf true
+```
+
