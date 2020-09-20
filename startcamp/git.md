@@ -138,3 +138,6 @@ $ git diff
 $ git config core.autocrlf true
 ```
 
+
+
+git rm -r --cached .vscode
