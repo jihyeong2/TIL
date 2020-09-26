@@ -140,4 +140,68 @@ $ git config core.autocrlf true
 
 
 
-git rm -r --cached .vscode
+### 8. git에 저장된 파일 지우는 법
+
+```bash
+git rm -r --cached {file name}
+```
+
+
+
+## Branch
+
+> 기본으로 생성되는 master 이외의 branch를 생성하여 코드를 쉽게 관리할 수 있다.
+
+
+
+### Branch check
+
+```bash
+git branch # 현재 존재하는 branch를 확인
+git log --oneline
+git log --all --oneline 
+git log --oneline --graph
+# 과거부터 현재까지 commit 상태를 모두 확인할 수 있다.
+# --graph는 master부터 뻗어나간 branch들을 graph로 보기 쉽게 나타내준다.
+```
+
+
+
+### Branch 생성
+
+```bash
+git branch {branch name}
+```
+
+
+
+### Branch 이동
+
+```bash
+git switch {branch name}
+# 작성한 branch로 이동하여 관리할 수 있도록 한다.
+```
+
+
+
+### Branch 삭제
+
+```bash
+git branch -d {branch name}
+# 해당 branch를 삭제한다.
+# 잘못 생성한 branch를 지울 때나, master와 병합한 후 branch를 삭제할 때 사용한다.
+```
+
+
+
+### Branch 병합
+
+```bash
+git merge {branch name}
+# merge할 때 병합하려는 branch에서 수정된 코드 변경점과 master에서 수정된 코드 변경점에 동일한 부분이 있으면 Merge Conflict가 생긴다.
+# Vscode 자체적으로 master branch의 코드를 선택할 것인지 병합하려는 branch 코드를 선택할 것인지 지원해준다.
+# 선택 후 master에서 다시 add/commit 해주면 merge conflict가 해결된다.
+```
+
+
+

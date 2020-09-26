@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>FORM</h1>
+<form action="" method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="작성하기">
+</form>
+{% endblock content %}
