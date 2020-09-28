@@ -140,10 +140,11 @@ $ git config core.autocrlf true
 
 
 
-### 8. git에 저장된 파일 지우는 법
+### 8. git에서 관리하지 못하게 하는 법
 
 ```bash
-git rm -r --cached {file name}
+$ git rm -r --cached {folder name} # 폴더의 경우
+$ git rm --cashed {file name} # 파일의 경우
 ```
 
 
