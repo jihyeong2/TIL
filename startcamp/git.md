@@ -149,6 +149,22 @@ $ git rm --cashed {file name} # 파일의 경우
 
 
 
+### 9. git commit 삭제하는 법
+
+```bash
+$ git reset HEAD^
+```
+
+
+
+### 10. git merge 전으로 돌리기
+
+```bash
+$ git merge --abort
+```
+
+
+
 ## Branch
 
 > 기본으로 생성되는 master 이외의 branch를 생성하여 코드를 쉽게 관리할 수 있다.
