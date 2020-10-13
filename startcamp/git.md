@@ -144,7 +144,7 @@ $ git config core.autocrlf true
 
 ```bash
 $ git rm -r --cached {folder name} # 폴더의 경우
-$ git rm --cashed {file name} # 파일의 경우
+$ git rm --cached {file name} # 파일의 경우
 ```
 
 
