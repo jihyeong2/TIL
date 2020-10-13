@@ -165,6 +165,15 @@ $ git merge --abort
 
 
 
+### 11. local git config email 설정하기
+
+```bash
+$ git config --get user.email # 현재 git이 연동되어 있는 email을 보여준다.
+$ git config user.email {your email} # git과 연동시킬 email을 설정한다.
+```
+
+
+
 ## Branch
 
 > 기본으로 생성되는 master 이외의 branch를 생성하여 코드를 쉽게 관리할 수 있다.
