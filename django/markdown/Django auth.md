@@ -26,11 +26,11 @@ $ python manage.py startapp accounts
 
 - 프로젝트에 앱을 등록시켜주기 위해 `settings.py`의 `INSTALLED_APPS`에 `accounts`를 추가한다.
 
-![image-20201021140919668](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021140919668.png)
+![image-20201021140919668](.\img\image-20201021140919668.png)
 
 - `accounts` 앱과 관련된 url을 프로젝트 `urls.py`에 등록시킨다.
 
-![image-20201021140948566](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021140948566.png)
+![image-20201021140948566](.\img\image-20201021140948566.png)
 
 
 
@@ -57,7 +57,7 @@ $ python manage.py startapp accounts
 
 - 우선 프로젝트에서 따로 추가하거나 변경해줘야 하는 필드들이 없기 때문에 대체 클래스를 생성해주고 `pass`로 마무리한다.
 
-![image-20201021141001957](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141001957.png)
+![image-20201021141001957](.\img\image-20201021141001957.png)
 
 
 
@@ -67,7 +67,7 @@ $ python manage.py startapp accounts
 
 - 프로젝트 폴더 내의 `settings.py`에서 `AUTH_USER_MODEL='app_name.model_name`으로 변경해준다.
 
-![image-20201021141012143](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141012143.png)
+![image-20201021141012143](.\img\image-20201021141012143.png)
 
 
 
@@ -75,7 +75,7 @@ $ python manage.py startapp accounts
 
 > Django에서 제공하는 UserCreationForm()에서 원하는 필드들만 보고 싶을 경우 UserCreationForm을 상속받아 필드를 재정의한다.
 
-![image-20201021141025236](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141025236.png)
+![image-20201021141025236](.\img\image-20201021141025236.png)
 
 
 
@@ -83,7 +83,7 @@ $ python manage.py startapp accounts
 
 > CustomUserCreationForm과 같이 원하는 필드들만 보여주기 위해 재정의한다.
 
-![image-20201021141034168](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141034168.png)
+![image-20201021141034168](img\image-20201021141034168.png)
 
 
 
@@ -91,7 +91,7 @@ $ python manage.py startapp accounts
 
 - accounts 앱에서 구현할 기능들을 실행할 url들을 accounts 앱 내의 urls.py에 선언한다.
 
-![image-20201021141044189](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141044189.png)
+![image-20201021141044189](img\image-20201021141044189.png)
 
 
 
@@ -105,7 +105,7 @@ $ python manage.py startapp accounts
 
 - `request.method=='POST'`일 때는 계정을 생성하여 db에 등록시키고, `request.method=='GET'`일 때는 계정을 생성하는 페이지를 rendering한다.
 
-![image-20201021141055824](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141055824.png)
+![image-20201021141055824](img\image-20201021141055824.png)
 
 
 
@@ -115,7 +115,7 @@ $ python manage.py startapp accounts
 
 - `request.method=='POST'`일 때는 계정을 서버에 로그인 시키고, `request.method=='GET'`일 때는 로그인 할 수 있는 페이지를 rendering한다.
 
-![image-20201021141105832](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141105832.png)
+![image-20201021141105832](img\image-20201021141105832.png)
 
 - 로그인 할 때는 받아온 정보를 담고 있는 form의 get_user 메서드를 사용하여 user 모델을 불러온다.
 
@@ -127,7 +127,7 @@ $ python manage.py startapp accounts
 
 - db 내의 생성되어 있는 `session_id`를 지워주는 과정이기 때문에 `POST`방식만을 사용해야한다.
 
-![image-20201021141115530](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141115530.png)
+![image-20201021141115530](img\image-20201021141115530.png)
 
 
 
@@ -137,7 +137,7 @@ $ python manage.py startapp accounts
 
 - `request.method=='POST'`일 때는 수정된 정보를 db에 재등록하고, `request.method=='GET'`일 때는 계정을 수정할 수 있도록 수정 페이지를 rendering한다.
 
-![image-20201021141126411](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141126411.png)
+![image-20201021141126411](img\image-20201021141126411.png)
 
 
 
@@ -145,7 +145,7 @@ $ python manage.py startapp accounts
 
 > db에 등록된 계정을 삭제하는 함수이다. db를 변경하는 과정이기 때문에 `POST`방식이어야만 하고, 로그인이 되어있어야 한다.
 
-![image-20201021141139227](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141139227.png)
+![image-20201021141139227](img\image-20201021141139227.png)
 
 
 
@@ -155,7 +155,7 @@ $ python manage.py startapp accounts
 
 - `request.method=='POST'`일 때는 바뀐 비밀번호를 새로이 db에 저장하도록 하고, `request.method=='GET'`일 때는 비밀번호를 바꿀 수 있는 `form`을 보여주는 페이지로 이동한다.
 
-![image-20201021141148786](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141148786.png)
+![image-20201021141148786](img\image-20201021141148786.png)
 
 
 
@@ -165,23 +165,23 @@ $ python manage.py startapp accounts
 
 ### 5.1 signup.html
 
-![image-20201021141159524](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141159524.png)
+![image-20201021141159524](img\image-20201021141159524.png)
 
 
 
 ### 5.2 login.html
 
-![image-20201021141208823](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141208823.png)
+![image-20201021141208823](img\image-20201021141208823.png)
 
 
 
 ### 5.3 update.html
 
-![image-20201021141217211](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141217211.png)
+![image-20201021141217211](img\image-20201021141217211.png)
 
 
 
 ### 5.4 change_password.html
 
-![image-20201021141225811](C:\Users\qmffn\Desktop\TIL\django\markdown\img\image-20201021141225811.png)
+![image-20201021141225811](img\image-20201021141225811.png)
 
