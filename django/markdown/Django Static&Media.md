@@ -23,11 +23,11 @@ typora-copy-images-to: img
 
 -  `settings.py`에서 static 파일 경로를 나타내는 `STATICFILES_DIRS`변수를 사용하여 static 파일의 경로를 설정한다.
 
-![image-20201021140333854](img\image-20201021140333854.png)
+![image-20201021140333854](./img/image-20201021140333854.png)
 
 - 프로젝트 폴더 바로 아래 statci 폴더를 만들어 css,js 파일들을 담아두었다.
 
-![image-20201021140400198](img\image-20201021140400198.png)
+![image-20201021140400198](./img/image-20201021140400198.png)
 
 - `base.html`폴더에서 link tag를 사용하여 static 폴더에 위치한 css파일을 불러온다.
 
@@ -54,7 +54,7 @@ typora-copy-images-to: img
 
 - 프로젝트에 image 파일을 업로드 할 수 있도록 `models.py`에 만들어놓은 `Article` 모델에 imagefield를 추가한다.
 
-![image-20201021140425817](img\image-20201021140425817.png)
+![image-20201021140425817](./img/image-20201021140425817.png)
 
 - image를 처리할 때에는 image를 처리하는 패키지를 install 해야 한다. 대표적으로 Pillow,openCV 등이 있다. Pillow 패키지를 install 하여 Thumbnail 이미지를 사용할 수 있게끔 한다. 이외에도 저장할 파일 형식을 설정할 수 있는 format도 있다.
 - 이미지가 저장되는 날짜에 따라 저장되는 파일을 동적으로 할당해주기 위해 `upload_to='%Y/%m/%d'` parameter를 설정한다.
@@ -89,7 +89,7 @@ $ python manage.py migrate
 - `STATIC_URL`과 동일하게 업로드 된 미디어 파일의 URL을 만들어 주는 역할을 하는 `MEDIA_URL='media/'` 를 `settings.py`에 선언해준다.
 - 미디어 파일들을 저장해 놓을 디렉토리에 관한 경로를 제공하는 역할을 하는 `MEDIA_ROOT= BASE_DIR / 'media'`를 `settings.py`에 선언해준다.
 
-![image-20201021140443402](img\image-20201021140443402.png)
+![image-20201021140443402](./img/image-20201021140443402.png)
 
 
 
@@ -99,4 +99,4 @@ $ python manage.py migrate
 - 이 url을 만들어 주는 코드는 `urlpatterns=[]+ static(settings.MEDIA_URL, document_root=MEDIA_ROOT)`이다.
 - urls.py in project(not app)
 
-![image-20201021140502268](img\image-20201021140502268.png)
+![image-20201021140502268](./img/image-20201021140502268.png)
