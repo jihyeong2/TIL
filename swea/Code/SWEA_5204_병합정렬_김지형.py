@@ -1,33 +1,32 @@
-def merge(arr,l1,r1,l2,r2):
-    s1,s2,tmp=l1,l2,[]
+def merge(left,right):
+    s1,s2,e1,e2,tmp=0,0,len(left),len(right),[]
     global result
-    if arr[r1]>arr[r2]: result+=1
-    while s1<r1 and s2<r2:
-        if arr[s1]<arr[s2]:
-            tmp.append(arr[s1])
+    if left[-1]>right[-1] : result+=1
+    while s1<e1 and s2<e2:
+        if left[s1]<=right[s2]:
+            tmp.append(left[s1])
             s1+=1
         else:
-            tmp.append(arr[s2])
+            tmp.append(right[s2])
             s2+=1
-    while s1<r1:
-        tmp.append(arr[s1])
+    while s1<e1:
+        tmp.append(left[s1])
         s1+=1
-    while s2<r2:
-        tmp.append(arr[s2])
+    while s2<e2:
+        tmp.append(right[s2])
         s2+=1
-    for i in range(len(tmp)):
-        arr[i+l1]=tmp[i]
-def mergeSort(arr,l,r):
-    if l>=r: return
-    mid=(l+r)//2
-    mergeSort(arr,l,mid)
-    mergeSort(arr,mid+1,r)
-    merge(arr,l,mid,mid+1,r)
+    return tmp
+def mergeSort(arr):
+    if len(arr)<=1: return arr
+    left,right=arr[:len(arr)//2],arr[len(arr)//2:]
+    left=mergeSort(left)
+    right=mergeSort(right)
+    sorted_arr=merge(left,right)
+    return sorted_arr
 T=int(input())
 for tc in range(1,T+1):
     n=int(input())
     arr=list(map(int,input().split()))
     result=0
-    mergeSort(arr,0,n-1)
-    print(arr)
-    print('#{} {} {}'.format(tc,arr[n//2],result))
+    sorted_arr=mergeSort(arr)
+    print('#{} {} {}'.format(tc,sorted_arr[n//2],result))
