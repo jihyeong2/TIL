@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>점심메뉴</h1>
+    <button @click="pickMenu">Pick one</button>
+    <h3>{{selectMenu}}</h3>
+    <hr>
+    <h1>로또</h1>
+    <button @click="pickNumbers">Pick one</button>
+    <h3>{{selectNumbers}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <script>
+    const app=new Vue({
+      el:'#app',
+      data:{
+        menus:['국밥','짜장면','짬뽕','탕수육'],
+        selectMenu:'',
+        selectNumbers: []
+      },
+      methods:{
+        pickMenu: function(){
+          this.selectMenu=_.sample(this.menus)
+        },
+        pickNumbers: function(){
+          const numbers = _.range(1,46)
+          this.selectNumbers=_.sampleSize(numbers,6)
+          this.selectNumbers=_.sortBy(this.selectNumbers)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
