@@ -19,7 +19,7 @@
 #                     dist = 1 + maps[nx][ny] - maps[minX][minY] if maps[nx][ny] > maps[minX][minY] else 1
 #                     T[nx][ny]=min(T[nx][ny],T[minX][minY]+dist)
 #     print('#{} {}'.format(tc,T[n-1][n-1]))
-
+import heapq
 dx,dy=(-1,1,0,0),(0,0,-1,1)
 def bfs():
     T[0][0]= 0
@@ -39,5 +39,15 @@ for tc in range(1,T+1):
     n=int(input())
     maps=[list(map(int, input().split())) for _ in range(n)]
     T = [[float('inf')] * n for _ in range(n)]
-    bfs()
+    heap=[(0,0,0)]
+    T[0][0]=0
+    while heap:
+        d,x,y=heapq.heappop(heap)
+        for dir in range(4):
+            nx,ny=x+dx[dir],y+dy[dir]
+            if 0<=nx<n and 0<=ny<n:
+                nd=1+maps[nx][ny]-maps[x][y] if maps[nx][ny]>maps[x][y] else 1
+                if d+nd<T[nx][ny]:
+                    heapq.heappush(heap,(d+nd,nx,ny))
+                    T[nx][ny]=d+nd
     print('#{} {}'.format(tc, T[n - 1][n - 1]))
