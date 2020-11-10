@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <select name="state" id="state" v-model="status">
+      <option value="all">전체</option>
+      <option value="ing">진행중</option>
+      <option value="complete">완료</option>
+    </select>
+    <input type="text" v-model="userInput" @keyup.enter="addTodo">
+    <button @click="addTodo">+</button>
+    <ul>
+      <li v-for="todo in computedTodosByStatus" :class="todo.isCompleted ? 'completed' : ''">
+        <input type="checkbox" v-model="todo.isCompleted">
+        <span>{{ todo.content }}</span>
+      </li>
+    </ul>
+    <button @click="deleteCompleted">완료된 할 일 지우기</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <script>
+    const app=new Vue({
+      el:'#app',
+      data:{
+        status:'all',
+        userInput:'',
+        todos:[
+          {
+            content:'건강설문',
+            isCompleted:false,
+          },
+          {
+            content:'홈워크',
+            isCompleted:true,
+          }
+        ],
+      },
+      methods:{
+        addTodo:function(){
+          this.todos.push({content:this.userInput,isCompleted:false})
+          this.userInput=''
+        },
+        deleteCompleted:function(){
+          const newTodo=this.todos.filter((todo)=>{return !todo.isCompleted})
+          this.todos=newTodo
+        },
+
+      },
+      computed:{
+        computedTodosByStatus:function(){
+          console.log(this.todos)
+          if(this.status==='ing'){
+            return this.todos.filter((todo)=>{return !todo.isCompleted})
+          }
+          else if(this.status==='complete'){
+            return this.todos.filter((todo)=>{return todo.isCompleted})
+          }
+          else{
+            return this.todos
+          }
+        }
+      }
+    })
+// 1. html(template)
+// 2. 
+// 3-1. input 유저가 입력을 할 때 -> 입력된 내용을 userInput에 담기
+// 3-2. enter키가 눌렸을 때나 '+' 버튼을 눌렀을 때 userInput을 todos에 추가하기
+// computed는 data에 의해서 계산된 결과를 가져오려 할 때 사용
+// methods는 메서드가 호출됐을 때마다 실행됨. 
+// computed는 data가 변경되지 않는 이상 캐싱이 일어나지 않는다(?)
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="cat">
+    <h1>Cat Image</h1>
+    <img :src="imgSrc" alt="Cat" width="400" height="400">
+    <button @click="getCat">Get Cat</button>
+  </div>
+  <div id="app">
+    <div v-for="num in nums" v-if="num%2==0">{{num}}</div>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <script>
+    const cat = new Vue({
+      el:'#cat',
+      data:{
+        imgSrc:'',
+        imgUrl:'https://api.thecatapi.com/v1/images/search',
+      },
+      methods:{
+        getCat:function(){
+          // console.log(this.imgUrl)
+          axios.get(this.imgUrl)
+          .then((res)=>{
+            // console.log(res.data[0].url)
+            this.imgSrc=res.data[0].url
+            // console.log(this.imgSrc)
+          })
+        }
+      },
+    })
+    const app = new Vue({
+      el:'#app',
+      data:{
+        nums:[1,2,3,4,5,6],
+      },
+    })
+  </script>
+</body>
+</html>
