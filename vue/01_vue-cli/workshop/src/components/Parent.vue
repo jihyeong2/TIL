@@ -1,39 +1,46 @@
 <template>
   <div>
     <h1>Parent</h1>
-    <input type="text" @keypress="onChange">
-    <p>appData: {{appData}}</p>
-    <p>childData: {{childData}}</p>
-    <Child :appData="appData" :parentData="parentData" @onChildDataChange="onChange2"/>
+    <input type="text" @keyup="onChange">
+    <p>appData: {{ appData }}</p>
+    <p>childData: {{ childData }}</p>
+    <Child
+      :appData="appData"
+      :parentData="parentData"
+      @onChildDataChange="onChildDataChange"
+    />
   </div>
 </template>
 
 <script>
-import Child from '@/components/Child.vue'
+import Child from './Child.vue'
 export default {
-  name:"Parent",
   components:{
     Child,
   },
+  // props: ['appData',], 이렇게도 가능!
   props:{
-    appData:String,
-    parentData:String,
-    childData:String,
-  },
-  methods:{
-    onChange:function(event){
-      this.$emit('onParentDataChange',event.target.value)
+    appData: {
+      type: String,
     },
-    onChange2:function(event){
-      this.$emit('onChildDataChange',event.target.value)
+    parentData: {
+      type: String,
+    },
+    childData: {
+      type: String,
+    },
+  },
+  methods: {
+    onChange: function(event){
+      // 부모가 달아둔 onParentDataChange라는 이벤트 발생시킴
+      // 발생시키면서 인자 전달
+      this.$emit('onParentDataChange', event.target.value)
+    },
+    onChildDataChange(childData) {
+      this.$emit('onChildDataChange', childData)
     }
   }
 }
-// 어떤 상황에서 자식 컴포넌트에 data를 쓰면 안되는가?
-// 자식에서 발생하는 data인데, 부모가 쓰거나, 혹은 형제가 사용한다.
-// 자식->부모로 data를 직접적으로 전달하는 것이 불가능
-
-// 해결법 : 부모에 data를 만든다.
 </script>
 
 <style>
