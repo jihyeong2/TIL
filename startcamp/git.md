@@ -170,6 +170,7 @@ $ git merge --abort
 ```bash
 $ git config --get user.email # 현재 git이 연동되어 있는 email을 보여준다.
 $ git config user.email {your email} # git과 연동시킬 email을 설정한다.
+$ git config --global user.email {your email} # 깃 터미널과 연동시킬 email 설정 (name도 동일)
 ```
 
 
