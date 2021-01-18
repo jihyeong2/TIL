@@ -232,3 +232,27 @@ git merge {branch name}
 
 
 
+### GIt Flow
+
+```bash
+# 1. branch 생성 -> branch 이동
+git branch develop; git checkout develop
+# git checkout -b develop
+
+# 2. branch 확인
+git branch # 로컬저장소 내 브랜치 리스트
+git branch -r # 원격저장소 내 브랜치 리스트
+git branch -a # 로컬/원격저장소 내 브랜치 리스트
+
+# 3. 원격 저장소의 브랜치(develop)를 로컬 저장소로 옮기기
+git checkout -t origin/develop
+
+# 4. 원격 저장소에 push
+git push origin develop
+
+# 5. 원격 저장소에 push 하기 전에 원격저장소의 최신 내용을 로컬에 반영하지 않았다면
+# 원격저장소 서버와 연결화 git pull
+git branch --set-upstream-to=origin/develop develop
+git pull
+```
+
