@@ -22,7 +22,6 @@ def solution(play_time, adv_time, logs):
     for i in range(3):
         advTimeSec += int(adv_time[i]) * (60 ** (2 - i))
 
-
     playTimeArr=[0]*(playTimeSec+1)
     for i in range(len(logs)):
         playTimeArr[startLogsSec[i]]+=1
